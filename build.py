@@ -357,6 +357,43 @@ PAGES['duvidas'] = ('Dúvidas | N’ROTA', 'duvidas', f'''
 {band("Ainda com dúvida?", "Envie um briefing e a equipe responde pelo canal que você preferir.", btn("solicitar-proposta.html", "Falar com o produtor"))}
 ''', [])
 
+PAGES['rebeca'] = ('Rebeca Catarina | N’ROTA', 'rebeca', f'''
+<section class="perfil wrap">
+  <figure class="perfil-foto">
+    <img data-img="rebeca-lilas" alt="Rebeca Catarina sorrindo ao lado do palco, em tratamento gráfico lilás" fetchpriority="high">
+    <span class="glass perfil-tag">Idealização e produção</span>
+  </figure>
+  <div class="perfil-txt">
+    <span class="label" data-reveal>Quem está por trás</span>
+    <h1 data-reveal style="--d:1"><span>Rebeca</span> <span class="stroke">Catarina</span></h1>
+    <p class="lead" data-reveal style="--d:2">Produtora e idealizadora da N’ROTA. Passou a vida entre passagem de som, camarim e pista, e transformou o que viu ali numa ideia simples: banda boa precisa ser encontrada.</p>
+    <dl class="fatos" data-reveal style="--d:3">
+      <div><dt>Função</dt><dd>Curadoria e produção</dd></div>
+      <div><dt>Base</dt><dd>Brasília/DF</dd></div>
+      <div><dt>Trilha</dt><dd>Rock, metal e o que vier</dd></div>
+    </dl>
+    <div class="ctas" data-reveal style="--d:4">{btn("solicitar-proposta.html", "Falar com a Rebeca")}{btn("cadastro-banda.html", "Cadastrar minha banda", "g")}</div>
+  </div>
+</section>
+<section class="s"><div class="wrap">
+  <blockquote class="citacao" data-reveal>“Seu som merece ir mais longe. A gente só ajuda o caminho a aparecer.”<cite>Rebeca Catarina</cite></blockquote>
+  <div class="grid g3">
+    <article class="card" data-reveal><span class="label">01</span><h3>Olhar de quem já esteve no palco</h3><p>Cada perfil é revisado pensando em quem toca e em quem contrata.</p></article>
+    <article class="card" data-reveal style="--d:1"><span class="label">02</span><h3>Atendimento de gente</h3><p>Briefing, dúvida ou proposta: quem responde é a equipe, sem robô no meio.</p></article>
+    <article class="card" data-reveal style="--d:2"><span class="label">03</span><h3>Rota aberta</h3><p>Começa no rock e abre espaço para samba, pagode, pop, sertanejo e MPB.</p></article>
+  </div>
+</div></section>
+<section class="s"><div class="wrap">
+  {heading("Bastidores", "Luz, estrada e <span class='lil'>som alto.</span>")}
+  <div class="duo">
+    <figure class="duo-f" data-reveal><img data-img="rebeca-palco" alt="Rebeca fotografando o público do palco, em tratamento laranja" loading="lazy"></figure>
+    <figure class="duo-f" data-reveal style="--d:1"><img data-img="rebeca-luz" alt="Rebeca em contraluz sob feixes de luz do show, em tratamento violeta" loading="lazy"></figure>
+  </div>
+  <p class="reel-note">Perfil de exemplo, com texto ilustrativo. Fotos com tratamento gráfico.</p>
+</div></section>
+{band("Vamos colocar sua banda na rota?", "Cadastro gratuito e contato direto com quem produz.", btn("cadastro-banda.html", "Cadastrar banda"))}
+''', [])
+
 for slug, title in [('cadastro-banda', 'Cadastre sua banda'), ('solicitar-proposta', 'Solicitar proposta'), ('seja-parceiro', 'Quero ser parceiro'), ('acesso-antecipado', 'Acesso antecipado')]:
     PAGES[slug] = (f'{title} | N’ROTA', 'form', f'<div class="wrap" data-form="{slug}"></div>', ['forms'])
 

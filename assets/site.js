@@ -6,6 +6,7 @@ const PAGES = [
   ['artistas', 'Artistas'],
   ['eventos', 'Eventos'],
   ['parceiros', 'Parceiros'],
+  ['rebeca', 'Rebeca'],
   ['duvidas', 'Dúvidas']
 ];
 const START = [
@@ -107,7 +108,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => {
 });
 
 if (finePointer && !calm) {
-  document.querySelectorAll('.card,.artist').forEach(el => {
+  document.querySelectorAll('.card,.artist,.perfil-foto').forEach(el => {
     el.addEventListener('pointermove', e => {
       const r = el.getBoundingClientRect();
       el.style.setProperty('--ry', `${((e.clientX - r.left) / r.width - .5) * 8}deg`);

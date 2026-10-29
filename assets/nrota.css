@@ -391,3 +391,25 @@ input[type=file]::file-selector-button{font:inherit;font-weight:600;margin-right
   html{scroll-behavior:auto}
   .js [data-reveal]{opacity:1;transform:none}
 }
+
+/* Perfil */
+.perfil{display:grid;gap:34px;padding-top:calc(96px + env(safe-area-inset-top,0px));padding-bottom:40px;align-items:center}
+.perfil-foto{position:relative;margin:0;aspect-ratio:3/4;max-width:460px;width:100%;justify-self:center;border-radius:var(--r);overflow:hidden;box-shadow:0 50px 90px -30px rgba(108,63,224,.55),0 0 0 1px var(--edge);transform:perspective(1100px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .4s var(--ease)}
+.perfil-foto img{width:100%;height:100%;object-fit:cover}
+.perfil-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(7,6,10,.7));pointer-events:none}
+.perfil-tag{position:absolute;left:14px;bottom:14px;z-index:2;padding:8px 14px;border-radius:99px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase}
+.perfil-txt{display:grid;gap:20px;min-width:0}
+.perfil-txt h1{font-size:clamp(3.4rem,15vw,7.4rem)}
+.perfil-txt h1 span{display:block}
+.fatos{display:grid;gap:0;margin:0;border-top:1px solid var(--edge)}
+.fatos div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--edge)}
+.fatos dt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.fatos dd{margin:0;text-align:right}
+.citacao{margin:0 0 48px;font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(2rem,8vw,4.4rem);line-height:.95;color:var(--lilac);text-wrap:balance}
+.citacao cite{display:block;margin-top:16px;font:500 .72rem/1 var(--f-mono);letter-spacing:.08em;color:var(--orange)}
+.duo{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.duo-f{margin:0;aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;box-shadow:0 0 0 1px var(--edge)}
+.duo-f:nth-child(2){margin-top:28px}
+.duo-f img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.duo-f:hover img{transform:scale(1.05)}
+@media (min-width:900px){.perfil{grid-template-columns:.9fr 1.1fr;gap:70px;padding-top:150px}.duo{gap:26px;max-width:900px;margin:0 auto}.duo-f:nth-child(2){margin-top:60px}}
