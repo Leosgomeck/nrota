@@ -1,3 +1,6 @@
+document.documentElement.classList.add('js');
+
+const IMG = name => `https://c2dcc68a-36da-483a-a1c2-c70f6af60543.sandbox.floot.app/_cdn/static/nrota-${name}.webp?v=2`;
 const PAGES = [
   ['como-funciona', 'Como funciona'],
   ['artistas', 'Artistas'],
@@ -13,19 +16,34 @@ const START = [
 ];
 const current = document.body.dataset.page;
 const href = slug => `${slug}.html`;
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const wait = ms => new Promise(r => setTimeout(r, ms));
 
 customElements.define('n-header', class extends HTMLElement {
   connectedCallback() {
+    const aria = s => s === current ? ' aria-current="page"' : '';
     this.innerHTML = `<div class="wrap"><nav class="nav-in" aria-label="Principal">
       <a class="logo" href="index.html"><img src="assets/logo-nrota.png" alt="N’ROTA · início" width="203" height="44"></a>
-      <ul id="menu">${PAGES.map(([s, l]) => `<li><a href="${href(s)}"${s === current ? ' aria-current="page"' : ''}>${l}</a></li>`).join('')}
-        <li class="only-m"><a href="${href('cadastro-banda')}">Cadastrar banda</a></li></ul>
+      <ul class="nav-links">${PAGES.map(([s, l]) => `<li><a href="${href(s)}"${aria(s)}>${l}</a></li>`).join('')}</ul>
       <a class="btn btn-o btn-sm" href="${href('cadastro-banda')}">Cadastrar banda</a>
-      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
-      </button></nav></div>`;
-    const btn = this.querySelector('.menu-btn');
-    btn.addEventListener('click', () => btn.setAttribute('aria-expanded', this.classList.toggle('open')));
+      <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuPanel"><i></i></button>
+    </nav></div>
+    <div class="menu-panel" id="menuPanel">
+      <a class="big" href="index.html" style="--i:0"${aria('inicio')}><span>00</span>Início</a>
+      ${PAGES.map(([s, l], i) => `<a class="big" href="${href(s)}" style="--i:${i + 1}"${aria(s)}><span>0${i + 1}</span>${l}</a>`).join('')}
+      <a class="btn btn-o" href="${href('cadastro-banda')}">Cadastrar minha banda <span class="arr">→</span></a>
+    </div>`;
+    const btn = this.querySelector('.burger');
+    const toggle = open => {
+      this.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    btn.addEventListener('click', () => toggle(!this.classList.contains('open')));
+    this.querySelector('.menu-panel').addEventListener('click', e => e.target.closest('a') && toggle(false));
+    document.addEventListener('keydown', e => e.key === 'Escape' && toggle(false));
   }
 });
 
@@ -35,60 +53,78 @@ customElements.define('n-footer', class extends HTMLElement {
     this.innerHTML = `<footer class="site"><div class="wrap foot">
       <div><a class="logo" href="index.html"><img src="assets/logo-nrota-slogan.png" alt="N’ROTA · Seu som merece ir mais longe." width="239" height="64"></a>
         <p class="tri"><b>Um catálogo</b> para descobrir.<br><b>Uma vitrine</b> para valorizar.<br><b>Uma ponte</b> para conectar.</p></div>
-      <div><h4>A plataforma</h4>${list(PAGES)}</div>
-      <div><h4>Comece</h4>${list(START)}</div>
+      <div class="foot-cols"><div><h4>A plataforma</h4>${list(PAGES)}</div><div><h4>Comece</h4>${list(START)}</div></div>
       <div class="foot-base"><span>Brasília/DF · atendimento nacional</span><span>© 2026 N’ROTA</span></div>
-    </div></footer>`;
+    </div><span class="giant" aria-hidden="true">N’ROTA</span></footer>
+    <div class="dock"><a class="btn btn-o" href="${href('cadastro-banda')}">Cadastrar banda</a><a class="btn btn-g" href="${href('solicitar-proposta')}">Fazer evento</a></div>`;
   }
 });
 
-const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const wait = ms => new Promise(r => setTimeout(r, ms));
+document.querySelectorAll('img[data-img]').forEach(img => { img.src = IMG(img.dataset.img); });
+document.querySelectorAll('[data-aside-img]').forEach(el => el.style.setProperty('--aside-img', `url("${IMG(el.dataset.asideImg)}")`));
 
 const LANES = {
   ask: [
-    ['MA', 'Casamento em Pirenópolis', 'Rock acústico · 120 convidados', 'Busca'],
-    ['RT', 'Tributo a Queen', 'Festival · Goiânia/GO', 'Busca'],
-    ['LP', 'Happy hour corporativo', 'Pop rock · Brasília/DF', 'Busca'],
-    ['JC', '“Everlong” no repertório', 'Qualquer formação · DF', 'Busca'],
-    ['BS', 'Bar com música ao vivo', 'Sextas à noite · Taguatinga/DF', 'Busca'],
-    ['CF', 'Aniversário de 40 anos', 'Rock nacional anos 80', 'Busca']
+    ['CA', 'Casamento em Pirenópolis', 'Rock acústico · 120 convidados'],
+    ['FE', 'Tributo a Queen', 'Festival · Goiânia/GO'],
+    ['CO', 'Happy hour corporativo', 'Pop rock · Brasília/DF'],
+    ['RE', '“Everlong” no repertório', 'Qualquer formação · DF'],
+    ['BA', 'Bar com música ao vivo', 'Sextas à noite · Taguatinga/DF'],
+    ['AN', 'Aniversário de 40 anos', 'Rock nacional anos 80']
   ],
   art: [
-    ['VE', 'Vinil Elétrico', 'Rock alternativo · Brasília/DF', 'Perfil revisado'],
-    ['RN', 'Rádio Nacional', 'Rock clássico · 32 músicas', 'Perfil revisado'],
-    ['DS', 'Duo Setlist', 'Pop rock · duo acústico', 'Perfil revisado'],
-    ['CM', 'Contramão', 'Hard rock · aceita viagens', 'Perfil revisado'],
-    ['A6', 'Acústico 61', 'Pop rock · casamentos', 'Perfil revisado'],
-    ['FL', 'Fuzz Leste', 'Punk rock · Ceilândia/DF', 'Perfil revisado']
+    ['artista-cantora', 'Íris Monteiro', 'Soul rock · Brasília/DF'],
+    ['artista-guitarrista', 'Los Faroles', 'Hard rock · Goiânia/GO'],
+    ['artista-baterista', 'Mei & Os Satélites', 'Indie · São Paulo/SP'],
+    ['artista-baixista', 'Groove Cerrado', 'Blues rock · Brasília/DF'],
+    ['artista-violao', 'Anaya Rao', 'Acústico · Belo Horizonte/MG'],
+    ['artista-vocalista', 'Contramão', 'Rock nacional · Brasília/DF']
   ]
 };
 document.querySelectorAll('[data-lane]').forEach(track => {
   const kind = track.dataset.lane;
-  const html = LANES[kind].map(([a, t, s, p]) => `<div class="card ${kind}"><span class="av">${a}</span><div><strong>${t}</strong><span>${s}</span><span class="pill">${p}</span></div></div>`).join('');
-  track.innerHTML = html + html.replaceAll('class="card', 'aria-hidden="true" class="card');
+  const html = LANES[kind].map(([a, t, s]) => `<div class="lc ${kind}">${kind === 'art' ? `<img src="${IMG(a)}" alt="" loading="lazy">` : `<span class="av">${a}</span>`}<div><strong>${t}</strong><span>${s}</span><span class="pill">${kind === 'art' ? 'Perfil revisado' : 'Busca'}</span></div></div>`).join('');
+  track.innerHTML = html + html.replaceAll('class="lc', 'aria-hidden="true" class="lc');
 });
 
-const search = document.querySelector('[data-search-demo]');
-if (search) {
-  const DEMO = [
-    { q: 'Everlong', k: 'música no repertório', r: [['VE', 'Vinil Elétrico', 'Rock alternativo · Brasília/DF', 'Everlong (Foo Fighters)'], ['CM', 'Contramão', 'Hard rock · Goiânia/GO', 'Everlong (Foo Fighters)']] },
-    { q: 'Legião Urbana', k: 'artista no repertório', r: [['RN', 'Rádio Nacional', 'Rock clássico · Brasília/DF', '14 músicas de Legião Urbana'], ['A6', 'Acústico 61', 'Pop rock · Taguatinga/DF', '9 músicas de Legião Urbana']] },
-    { q: 'casamento acústico', k: 'tipo de evento e formato', r: [['DS', 'Duo Setlist', 'Pop rock · Brasília/DF', 'Duo acústico · casamentos'], ['VE', 'Vinil Elétrico', 'Rock alternativo · Brasília/DF', 'Acústico ou elétrico']] }
-  ];
-  const [query, kind, list] = ['[data-q]', '[data-k]', '[data-r]'].map(s => search.querySelector(s));
-  const paint = d => {
-    query.textContent = d.q;
-    kind.textContent = d.k;
-    list.innerHTML = d.r.map(([a, n, m, hit]) => `<li><span class="sc-av">${a}</span><div><strong>${n}</strong><span>${m} · <mark>${hit}</mark></span></div></li>`).join('');
-  };
-  paint(DEMO[0]);
+const typer = document.querySelector('[data-typer]');
+if (typer) {
+  const words = ['Everlong', 'Legião Urbana', 'casamento acústico', 'hard rock · GO', 'Foo Fighters'];
   if (!calm) (async () => {
-    for (let i = 1; ; i = (i + 1) % DEMO.length) {
-      await wait(3200);
-      for (let n = query.textContent.length; n >= 0; n--) { query.textContent = query.textContent.slice(0, n); await wait(28); }
-      for (let n = 1; n <= DEMO[i].q.length; n++) { query.textContent = DEMO[i].q.slice(0, n); await wait(70); }
-      paint(DEMO[i]);
+    for (let i = 1; ; i = (i + 1) % words.length) {
+      await wait(2600);
+      for (let n = typer.textContent.length; n >= 0; n--) { typer.textContent = typer.textContent.slice(0, n); await wait(30); }
+      for (const ch of words[i]) { typer.textContent += ch; await wait(75); }
     }
   })();
 }
+
+const reveal = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); }
+}), { rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  el.getBoundingClientRect().top < innerHeight ? el.classList.add('in') : reveal.observe(el);
+});
+
+if (finePointer && !calm) {
+  document.querySelectorAll('.card,.artist').forEach(el => {
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--ry', `${((e.clientX - r.left) / r.width - .5) * 8}deg`);
+      el.style.setProperty('--rx', `${((e.clientY - r.top) / r.height - .5) * -8}deg`);
+    });
+    el.addEventListener('pointerleave', () => { el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); });
+  });
+}
+
+const deck = document.querySelector('.deck');
+let ticking = false;
+addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    document.body.classList.toggle('past', scrollY > 420);
+    if (deck && !calm) deck.style.transform = `translate3d(0,${Math.min(scrollY, 600) * -0.12}px,0) rotateX(${Math.min(scrollY, 600) * 0.012}deg)`;
+    ticking = false;
+  });
+}, { passive: true });

@@ -10,7 +10,7 @@ const needsStructure = d => ESTRUTURA.some(s => has(d.servicos, s)) || has(d.ser
 
 const FORMS = {
   'cadastro-banda': {
-    kicker: 'Cadastro gratuito', title: 'Cadastre sua banda',
+    kicker: 'Cadastro gratuito', title: 'Cadastre sua banda', img: 'artista-vocalista',
     intro: 'Dez etapas curtas. Seu progresso fica salvo neste navegador e você pode continuar depois.',
     aside: 'Cachê e condições comerciais ficam privados. Só usamos em propostas que você autorizar.',
     done: ['Cadastro enviado.', 'Nossa equipe revisa os dados e avisa pelo WhatsApp de gestão quando o perfil for publicado.'],
@@ -114,7 +114,7 @@ const FORMS = {
   },
 
   'solicitar-proposta': {
-    kicker: 'Faça seu evento com a gente', title: 'Solicitar proposta',
+    kicker: 'Faça seu evento com a gente', title: 'Solicitar proposta', img: 'palco-banda',
     intro: 'Conte o que você imagina. Nossa equipe analisa e retorna com indicações ou uma proposta integrada.',
     aside: 'Nenhum preço ou disponibilidade é confirmado sem retorno do artista ou fornecedor.',
     presets: { artista: { servicos: ['Artista ou banda'] }, estrutura: { servicos: ['Som e iluminação'] }, completo: { servicos: ['Produção completa'] } },
@@ -161,7 +161,7 @@ const FORMS = {
   },
 
   'seja-parceiro': {
-    kicker: 'Rede de parceiros', title: 'Quero ser parceiro',
+    kicker: 'Rede de parceiros', title: 'Quero ser parceiro', img: 'artista-tecladista',
     intro: 'Cadastro gratuito para profissionais autônomos e empresas de eventos.',
     aside: 'CPF e CNPJ ficam restritos à equipe e servem só para verificação.',
     done: ['Cadastro enviado.', 'Revisamos seus dados e avisamos quando o perfil entrar na rede. Você passa a receber pedidos compatíveis com seu nicho e região.'],
@@ -201,7 +201,7 @@ const FORMS = {
   },
 
   'acesso-antecipado': {
-    kicker: 'Catálogo N’ROTA', title: 'Acesso antecipado',
+    kicker: 'Catálogo N’ROTA', title: 'Acesso antecipado', img: 'artista-cantora',
     intro: 'Entre na lista e seja avisado quando a busca completa estiver no ar.',
     aside: 'Novidades por e-mail só com a sua autorização, separada do cadastro.',
     presets: Object.fromEntries(['Samba','Pagode','Pop','Sertanejo','MPB','Rock'].map(s => [s.toLowerCase(), { estilos: [s] }])),
@@ -284,8 +284,8 @@ function mount(root) {
   if (preset) Object.entries(preset).forEach(([k, v]) => S.data[k] = [...new Set([...(S.data[k] || []), ...v])]);
 
   root.innerHTML = `<div class="form-page">
-    <aside class="form-aside">
-      <span class="eyebrow"><i></i>${esc(F.kicker)}</span>
+    <aside class="form-aside" style="--aside-img:url('${IMG(F.img)}')">
+      <span class="label">${esc(F.kicker)}</span>
       <h1>${esc(F.title)}</h1>
       <p class="muted">${esc(F.intro)}</p>
       ${multiStep ? `<ol class="steplist">${F.steps.map((s, i) => `<li><button type="button" data-go="${i}">${esc(s.t)}</button></li>`).join('')}</ol>` : ''}
@@ -368,8 +368,8 @@ function mount(root) {
       li.querySelector('button').toggleAttribute('aria-current', k === i);
     });
     back.hidden = i === 0;
-    next.textContent = i === n - 1 ? 'Enviar' : 'Continuar';
     next.className = `btn btn-sm ${i === n - 1 ? 'btn-o' : 'btn-p'}`;
+    next.innerHTML = i === n - 1 ? 'Enviar <span class="arr">→</span>' : 'Continuar <span class="arr">→</span>';
     $('.save').textContent = multiStep ? 'Progresso salvo neste navegador' : '';
   };
 

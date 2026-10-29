@@ -5,64 +5,68 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>N’ROTA</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Serif:ital@1&family=Onest:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#07060a">
+<meta name="description" content="N’ROTA: catálogo, divulgação e contratação musical. Cadastro gratuito para artistas.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Familjen+Grotesk:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/nrota.css">
 </head>
 <body data-page="inicio">
 <n-header></n-header>
 <main>
-<section class="hero wrap">
-  <div class="hero-grid">
-    <div>
-      <span class="eyebrow"><i></i>Rock N’ Rota · primeiro capítulo</span>
-      <h1>Seu som merece <em class="acc">ir mais longe.</em></h1>
-      <p class="lead">Catálogo nacional de artistas com repertório pesquisável e perfil profissional. Quem contrata encontra pela música, pelo estilo, pelo evento ou pela cidade.</p>
-      <div class="ctas"><a class="btn btn-o" href="cadastro-banda.html">Cadastrar minha banda</a><a class="btn btn-g" href="solicitar-proposta.html">Fazer meu evento</a></div>
-      <p class="fine">Cadastro gratuito. Contato direto com a banda, sem comissão.</p>
+<section class="hero">
+  <div class="beams" aria-hidden="true"><span class="beam b1"></span><span class="beam b2"></span><span class="beam b3"></span></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="label"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Rock N’ Rota · capítulo 01</span>
+      <h1><span>Seu som</span><span class="stroke">merece</span><span class="lil">ir mais</span><span>longe.</span></h1>
+      <p class="lead">Catálogo nacional de artistas com repertório pesquisável. Quem contrata encontra pela música, pelo estilo, pelo evento ou pela cidade.</p>
+      <div class="ctas"><a class="btn btn-o" href="cadastro-banda.html">Cadastrar minha banda <span class=arr>→</span></a><a class="btn btn-g" href="solicitar-proposta.html">Fazer meu evento</a></div>
+      <p class="fine">Cadastro gratuito · contato direto sem comissão</p>
     </div>
-    <div class="search-card" data-search-demo aria-label="Prévia ilustrativa da busca">
-      <div class="sc-top"><span>Busca no catálogo</span><span>Prévia ilustrativa</span></div>
-      <div class="sc-field"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12.2 12.2 3.8 3.8"/><circle cx="8" cy="8" r="5.5"/></svg><span><span data-q></span><span class="caret"></span></span></div>
-      <p class="sc-kind">Encontrado por <b data-k></b></p>
-      <ul class="sc-list" data-r></ul>
+    <div class="deck" aria-label="Artistas fictícios ilustrativos">
+      <div class="ph p1"><img data-img="artista-guitarrista" alt="" fetchpriority="high"></div>
+      <div class="ph p2"><img data-img="artista-cantora" alt="" fetchpriority="high"></div>
+      <div class="ph p3"><img data-img="artista-baterista" alt="" fetchpriority="high"></div>
+      <div class="chip-f glass c1"><span class="dot"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="m12.2 12.2 3.8 3.8"/></svg></span><div><small>Busca no repertório</small><strong data-typer>Everlong</strong><span class="caret"></span></div></div>
+      <div class="chip-f glass c2"><span class="dot"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14V4l9-2v10"/><circle cx="4" cy="14" r="2"/><circle cx="13" cy="12" r="2"/></svg></span><div><small>Estilo</small><strong>Soul rock · DF</strong></div></div>
+      <div class="chip-f glass c3"><span class="dot"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 7 13l8-8"/></svg></span><div><small>Status</small><strong>Perfil revisado</strong></div></div>
     </div>
-  </div>
-  <div class="genres">
-    <span class="lbl">Estilos</span>
-    <span class="chip on">Rock <small>ativo</small></span>
-    <a class="chip" href="acesso-antecipado.html#samba">Samba <small>em breve</small></a><a class="chip" href="acesso-antecipado.html#pagode">Pagode <small>em breve</small></a><a class="chip" href="acesso-antecipado.html#pop">Pop <small>em breve</small></a><a class="chip" href="acesso-antecipado.html#sertanejo">Sertanejo <small>em breve</small></a><a class="chip" href="acesso-antecipado.html#mpb">MPB <small>em breve</small></a>
   </div>
 </section>
+
+<div class="tickers"><div class="ticker t-org" aria-hidden="true"><div class="track"><span>Rock clássico</span><span>Hard rock</span><span>Blues rock</span><span>Indie</span><span>Metal</span><span>Pop rock</span><span>Punk rock</span><span>Rock clássico</span><span>Hard rock</span><span>Blues rock</span><span>Indie</span><span>Metal</span><span>Pop rock</span><span>Punk rock</span></div></div>
+<div class="ticker t-lil alt" aria-hidden="true"><div class="track"><span>Samba · em breve</span><span>Pagode · em breve</span><span>Pop · em breve</span><span>Sertanejo · em breve</span><span>MPB · em breve</span><span>Rock · ativo</span><span>Samba · em breve</span><span>Pagode · em breve</span><span>Pop · em breve</span><span>Sertanejo · em breve</span><span>MPB · em breve</span><span>Rock · ativo</span></div></div></div>
+
+<section class="s"><div class="wrap"><div class="s-head"><span class="label" data-reveal>01 — Vitrine</span><h2 data-reveal style="--d:1">Talentos de <span class='stroke'>todo</span> canto.</h2><p class="lead" data-reveal style="--d:2">Cada perfil reúne história, repertório, fotos, vídeos e formas de contato. Um lugar para ser descoberto por quem contrata.</p></div><div class="reel"><figure class="artist" data-reveal style="--d:0"><img data-img="artista-cantora" alt="Íris Monteiro, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Íris Monteiro</strong><span>Soul rock · Brasília/DF</span></figcaption></figure><figure class="artist" data-reveal style="--d:1"><img data-img="artista-guitarrista" alt="Los Faroles, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Los Faroles</strong><span>Hard rock · Goiânia/GO</span></figcaption></figure><figure class="artist" data-reveal style="--d:2"><img data-img="artista-baterista" alt="Mei & Os Satélites, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Mei & Os Satélites</strong><span>Indie · São Paulo/SP</span></figcaption></figure><figure class="artist" data-reveal style="--d:3"><img data-img="artista-baixista" alt="Groove Cerrado, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Groove Cerrado</strong><span>Blues rock · Brasília/DF</span></figcaption></figure><figure class="artist" data-reveal style="--d:0"><img data-img="artista-violao" alt="Anaya Rao, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Anaya Rao</strong><span>Acústico · Belo Horizonte/MG</span></figcaption></figure><figure class="artist" data-reveal style="--d:1"><img data-img="artista-vocalista" alt="Contramão, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Contramão</strong><span>Rock nacional · Brasília/DF</span></figcaption></figure><figure class="artist" data-reveal style="--d:2"><img data-img="artista-tecladista" alt="Vera Prisma, artista fictício" loading="lazy"><span class="tag glass">Exemplo</span><figcaption class="glass"><strong>Vera Prisma</strong><span>Synth rock · Curitiba/PR</span></figcaption></figure></div><p class="reel-note">Artistas e imagens fictícios, criados para ilustrar o catálogo. Arraste para o lado.</p></div></section>
 
 <section class="s">
   <div class="wrap flow">
-    <div class="flow-txt">
-      <span class="eyebrow"><i></i>Uma vitrine viva</span>
-      <h2>Quem procura encontra <em class="acc">quem toca.</em></h2>
-      <p class="lead">Cada perfil vira filtro: estilo, repertório, formação, região e agenda habitual. Cada busca chega a bandas que realmente atendem aquele pedido.</p>
-      <ul class="ticks">
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12.2 12.2 3.8 3.8"/><circle cx="8" cy="8" r="5.5"/></svg><span><b>Busca pelo repertório</b>Por artista ou música, não só pelo nome da banda.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5 7 13l8-8"/></svg><span><b>Perfis revisados</b>Dados e materiais conferidos antes de publicar.</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h12v8H8l-4 3v-3H3z"/></svg><span><b>Contato sem atrito</b>Direto com a banda ou com apoio do produtor.</span></li>
+    <div style="display:grid;gap:18px;align-content:start">
+      <span class="label" data-reveal>02 — Busca</span>
+      <h2 data-reveal style="--d:1">Quem procura acha <span class="lil">quem toca.</span></h2>
+      <p class="lead" data-reveal style="--d:2">Cada resposta do cadastro vira filtro: estilo, repertório, formação, região e agenda habitual.</p>
+      <ul class="ticks" data-reveal style="--d:3">
+        <li><span class="ico"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.5"/><path d="m12.2 12.2 3.8 3.8"/></svg></span><span><b>Busca pelo repertório</b>Por artista ou música, não só pelo nome da banda.</span></li>
+        <li><span class="ico"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 7 13l8-8"/></svg></span><span><b>Perfis revisados</b>Dados e materiais conferidos antes de publicar.</span></li>
+        <li><span class="ico"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h12v8H8l-4 3v-3H3z"/></svg></span><span><b>Contato sem atrito</b>Direto com a banda ou com apoio do produtor.</span></li>
       </ul>
-      <span class="tag-note">Cards ao lado: exemplos ilustrativos</span>
     </div>
     <div class="stage" aria-label="Exemplos ilustrativos de buscas e perfis">
-      <div class="lane"><div class="lane-track" data-lane="ask"></div></div>
-      <div class="lane rev"><div class="lane-track" data-lane="art"></div></div>
+      <div class="lane"><div class="lane-track" data-lane="art"></div></div>
+      <div class="lane rev"><div class="lane-track" data-lane="ask"></div></div>
     </div>
   </div>
 </section>
 
-<section class="s"><div class="wrap"><div class="s-head"><span class="eyebrow"><i></i>Escolha seu caminho</span><h2>Uma plataforma, <em class='acc'>três jornadas.</em></h2></div><div class="grid g3">
-  <a class="box" href="artistas.html"><span class="k">Para artistas</span><h3>Perfil gratuito no catálogo</h3><p>Repertório pesquisável, fotos, vídeos e contato direto. Divulgação opcional no Instagram.</p><span class="more">Conhecer →</span></a>
-  <a class="box" href="eventos.html"><span class="k">Para quem contrata</span><h3>Do artista ao evento completo</h3><p>Bandas, DJs, som, luz, palco, audiovisual e produção coordenada.</p><span class="more">Conhecer →</span></a>
-  <a class="box" href="parceiros.html"><span class="k">Para fornecedores</span><h3>Rede de profissionais de eventos</h3><p>Receba pedidos compatíveis com seu nicho e sua região.</p><span class="more">Conhecer →</span></a>
+<section class="s"><div class="wrap"><div class="s-head"><span class="label" data-reveal>03 — Caminhos</span><h2 data-reveal style="--d:1">Escolha a <span class='org'>sua</span> entrada.</h2></div><div class="snap fit">
+  <a class="card photo" href="artistas.html" data-reveal><img data-img="artista-baixista" alt="" loading="lazy"><div class="in"><span class="label">Para artistas</span><h3>Perfil gratuito no catálogo</h3><p>Repertório pesquisável e divulgação opcional no Instagram.</p><span class="more">Conhecer →</span></div></a>
+  <a class="card photo" href="eventos.html" data-reveal style="--d:1"><img data-img="palco-banda" alt="" loading="lazy"><div class="in"><span class="label">Para quem contrata</span><h3>Do artista ao evento completo</h3><p>Bandas, DJs, som, luz, palco e produção coordenada.</p><span class="more">Conhecer →</span></div></a>
+  <a class="card photo" href="parceiros.html" data-reveal style="--d:2"><img data-img="artista-tecladista" alt="" loading="lazy"><div class="in"><span class="label">Para fornecedores</span><h3>Rede de profissionais de eventos</h3><p>Pedidos compatíveis com seu nicho e sua região.</p><span class="more">Conhecer →</span></div></a>
 </div></div></section>
 
-<section class="s"><div class="wrap"><div class="s-head row"><div style="display:grid;gap:14px"><span class="eyebrow"><i></i>Como funciona</span><h2>Da banda ao palco em <em class='acc'>cinco passos.</em></h2></div><a class="more" href="como-funciona.html">Ver em detalhes →</a></div><ol class="steps " style="counter-reset:st 0"><li><h3>Cadastro</h3><p>A banda cria o perfil gratuito, com repertório música a música.</p></li><li><h3>Validação</h3><p>Nossa equipe revisa dados e materiais antes de publicar.</p></li><li><h3>Catálogo</h3><p>O perfil entra nos filtros por estilo, evento, formação e região.</p></li><li><h3>Descoberta</h3><p>Quem contrata pesquisa por artista, música, cidade ou data habitual.</p></li><li><h3>Contato</h3><p>Direto com a banda ou com apoio do produtor N’ROTA.</p></li></ol></div></section>
+<section class="s"><div class="wrap"><div class="s-head row"><div style="display:grid;gap:18px"><span class="label" data-reveal>04 — Como funciona</span><h2 data-reveal style="--d:1">Da banda ao <span class='stroke'>palco.</span></h2></div><a class="more" href="como-funciona.html">Ver em detalhes →</a></div><ol class="steps " style="counter-reset:st 0"><li data-reveal style="--d:0"><div><h3>Cadastro</h3><p>A banda cria o perfil gratuito, com repertório música a música.</p></div></li><li data-reveal style="--d:1"><div><h3>Validação</h3><p>Nossa equipe revisa dados e materiais antes de publicar.</p></div></li><li data-reveal style="--d:2"><div><h3>Catálogo</h3><p>O perfil entra nos filtros por estilo, evento, formação e região.</p></div></li><li data-reveal style="--d:3"><div><h3>Descoberta</h3><p>Quem contrata pesquisa por artista, música, cidade ou agenda.</p></div></li><li data-reveal style="--d:4"><div><h3>Contato</h3><p>Direto com a banda ou com apoio do produtor N’ROTA.</p></div></li></ol></div></section>
 
-<section class="s"><div class="wrap"><div class="band"><div><h2>O catálogo abre em breve.</h2><p class="lead">Entre na lista e seja avisado quando a busca completa estiver no ar.</p></div><a class="btn btn-o" href="acesso-antecipado.html">Quero acesso antecipado</a></div></div></section>
+<section class="s"><div class="wrap"><div class="band" data-reveal><div><span class="label"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> N’ROTA</span><h2>O catálogo abre em breve.</h2><p class="lead">Entre na lista e seja avisado quando a busca completa estiver no ar.</p></div><div class="ctas"><a class="btn btn-o" href="acesso-antecipado.html">Quero acesso antecipado <span class=arr>→</span></a></div><span class="vinyl" aria-hidden="true"></span></div></div></section>
 </main>
 <n-footer></n-footer>
 <script src="assets/site.js"></script>
