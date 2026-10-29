@@ -31,6 +31,7 @@ assets/
   site.js              cabeçalho e rodapé (<n-header>, <n-footer>), vitrine animada, busca demonstrativa
   forms.js             esquema dos formulários + motor de renderização, validação e envio
   logo-nrota*.png      logo oficial
+  img/                 retratos de artistas fictícios (gerados por IA, ilustrativos)
 build.py               gera os .html a partir do conteúdo das páginas
 ```
 

@@ -1,6 +1,6 @@
 document.documentElement.classList.add('js');
 
-const IMG = name => `https://c2dcc68a-36da-483a-a1c2-c70f6af60543.sandbox.floot.app/_cdn/static/nrota-${name}.webp?v=2`;
+const IMG = name => `assets/img/${name}.webp`;
 const PAGES = [
   ['como-funciona', 'Como funciona'],
   ['artistas', 'Artistas'],
