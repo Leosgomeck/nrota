@@ -130,7 +130,7 @@ footer.site{position:relative;overflow:hidden;border-top:1px solid var(--edge);p
 .deck .p2{left:24%;top:0;width:58%;--r:3deg;--z:40px;z-index:2;animation-duration:8s}
 .deck .p3{right:0;top:20%;--r:11deg;--z:-20px;animation-delay:-3s;animation-duration:9s}
 @keyframes float{0%,100%{transform:translate3d(0,0,var(--z)) rotate(var(--r)) rotateY(calc(var(--r) * -1.4))}50%{transform:translate3d(0,-14px,var(--z)) rotate(calc(var(--r) * .8)) rotateY(calc(var(--r) * -1))}}
-.chip-f{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;font-size:.84rem;box-shadow:0 20px 40px -20px rgba(0,0,0,.8);animation:bob 6s ease-in-out infinite}
+.chip-f{position:absolute;z-index:3;transform:translate3d(0,0,120px);display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;font-size:.84rem;box-shadow:0 20px 40px -20px rgba(0,0,0,.8);animation:bob 6s ease-in-out infinite}
 .chip-f small{display:block;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .chip-f strong{font-weight:600}
 .chip-f .dot{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--lilac);color:var(--lilac-ink);flex:none}
@@ -140,7 +140,7 @@ footer.site{position:relative;overflow:hidden;border-top:1px solid var(--edge);p
 .chip-f.c3{right:4%;bottom:2%;animation-delay:-4s}
 .caret{display:inline-block;width:2px;height:1em;background:var(--lilac);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes bob{0%,100%{transform:translate3d(0,0,120px)}50%{transform:translate3d(0,-10px,120px)}}
 @media (min-width:980px){
   .hero{padding-block:40px 80px}
   .hero-grid{grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}
