@@ -160,6 +160,50 @@ const FORMS = {
     ]
   },
 
+  'cadastro-performance': {
+    kicker: 'Artes performáticas', title: 'Cadastre seu número', img: 'palco-banda',
+    intro: 'Circo, malabarismo, palhaçaria, mágica, teatro de rua, dança e outras artes ao vivo. Perfil gratuito e contato direto.',
+    aside: 'CPF e cachê ficam restritos à equipe. Só aparece o que você autorizar.',
+    done: ['Cadastro enviado.', 'A equipe revisa os dados e avisa quando seu perfil for publicado.'],
+    steps: [
+      { t: 'Identificação', d: 'Quem se apresenta.', f: [
+        { k: 'radio', id: 'tipo', l: 'Você é', req: 1, o: ['Artista solo','Dupla ou trupe','Companhia'] },
+        { k: 'text', id: 'nome', l: 'Nome artístico ou da trupe', req: 1 },
+        { k: 'text', id: 'responsavel', l: 'Responsável', req: 1, half: 1 },
+        { k: 'text', id: 'doc', l: 'CPF ou CNPJ', req: 1, half: 1, priv: 1, hint: 'Usado só na verificação.' },
+        { k: 'tel', id: 'whatsapp', l: 'WhatsApp', req: 1, half: 1 },
+        { k: 'email', id: 'email', l: 'E-mail', req: 1, half: 1 },
+        { k: 'text', id: 'cidade', l: 'Cidade', req: 1, half: 1 },
+        { k: 'select', id: 'uf', l: 'UF', req: 1, half: 1, o: UF },
+        { k: 'multi', id: 'links', l: 'Redes e vídeos', sub: [['instagram','Instagram','@seuperfil'],['video','Vídeo de apresentação','https://…']] }
+      ]},
+      { t: 'Seu número', d: 'Organiza a busca de quem contrata.', f: [
+        { k: 'checks', id: 'modalidades', l: 'Modalidades', req: 1, o: ['Malabarismo','Acrobacia','Aéreos','Perna de pau','Palhaçaria','Mágica e ilusionismo','Mímica','Teatro de rua','Dança','Fogo e LED','Bonecos','Contação de histórias','Cantor ou DJ de apoio','Outra'] },
+        { k: 'text', id: 'outra', l: 'Qual outra modalidade?', when: d => (d.modalidades || []).includes('Outra') },
+        { k: 'area', id: 'proposta', l: 'Descreva o número', req: 1, ph: 'Como é a apresentação, o clima e o que o público vê.' },
+        { k: 'checks', id: 'publico', l: 'Público', o: ['Livre','Infantil','Adulto','Família','Corporativo'] },
+        { k: 'checks', id: 'eventos', l: 'Eventos', req: 1, o: ['Shows e festivais','Casamentos','Aniversários','Corporativos','Escolas','Ruas e praças','Bares e casas noturnas','Feiras e lojas'] },
+        { k: 'number', id: 'duracao', l: 'Duração do número (min)', half: 1, min: 1 },
+        { k: 'number', id: 'integrantes', l: 'Integrantes', half: 1, min: 1 },
+        { k: 'radio', id: 'interacao', l: 'Interage com o público?', half: 1, o: ['Sim','Não','Depende'] },
+        { k: 'file', id: 'fotos', l: 'Fotos e material', multi: 1, accept: '.pdf,image/*' }
+      ]},
+      { t: 'Estrutura e deslocamento', d: 'O que o espaço precisa oferecer.', f: [
+        { k: 'checks', id: 'espaco', l: 'Espaço necessário', o: ['Palco','Chão plano','Pé-direito alto','Ponto de ancoragem','Área ao ar livre','Espaço fechado'] },
+        { k: 'checks', id: 'tecnica', l: 'Técnica', o: ['Som','Luz','Camarim','Energia','Segurança contra fogo'] },
+        { k: 'area', id: 'riscos', l: 'Cuidados e observações', ph: 'Uso de fogo, alturas, restrições de local, tempo de montagem.' },
+        { k: 'radio', id: 'nacional', l: 'Viaja para outros estados?', half: 1, o: ['Sim','Não'] },
+        { k: 'text', id: 'raio', l: 'Região atendida', half: 1 }
+      ]},
+      { t: 'Condições e autorizações', d: 'Cachê é sempre privado.', f: [
+        { k: 'text', id: 'cache', l: 'Faixa de cachê', half: 1, priv: 1 },
+        { k: 'text', id: 'pagamento', l: 'Forma de pagamento', half: 1 },
+        { k: 'consent', id: 'c_lgpd', req: 1, l: 'Li e aceito os Termos de uso e a Política de privacidade (LGPD).' },
+        { k: 'consent', id: 'c_exibicao', req: 1, l: 'Autorizo a exibição do meu perfil, fotos e contato comercial na N’ROTA.' },
+        { k: 'consent', id: 'c_social', l: 'Autorizo a divulgação do meu perfil no Instagram da N’ROTA.' }
+      ]}
+    ]
+  },
   'seja-parceiro': {
     kicker: 'Rede de parceiros', title: 'Quero ser parceiro', img: 'artista-tecladista',
     intro: 'Cadastro gratuito para profissionais autônomos e empresas de eventos.',

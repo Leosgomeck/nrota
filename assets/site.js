@@ -6,11 +6,13 @@ const PAGES = [
   ['artistas', 'Artistas'],
   ['eventos', 'Eventos'],
   ['parceiros', 'Parceiros'],
+  ['performance', 'Performance'],
   ['rebeca', 'Rebeca'],
   ['duvidas', 'Dúvidas']
 ];
 const START = [
   ['cadastro-banda', 'Cadastrar banda'],
+  ['cadastro-performance', 'Cadastrar performance'],
   ['solicitar-proposta', 'Solicitar proposta'],
   ['seja-parceiro', 'Quero ser parceiro'],
   ['acesso-antecipado', 'Acesso antecipado']

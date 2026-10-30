@@ -357,6 +357,40 @@ PAGES['duvidas'] = ('Dúvidas | N’ROTA', 'duvidas', f'''
 {band("Ainda com dúvida?", "Envie um briefing e a equipe responde pelo canal que você preferir.", btn("solicitar-proposta.html", "Falar com o produtor"))}
 ''', [])
 
+PAGES['performance'] = ('Performance | N’ROTA', 'performance', f'''
+<section class="perf wrap">
+  <div class="perf-txt">
+    <span class="label" data-reveal>Artes ao vivo</span>
+    <h1 data-reveal style="--d:1"><span>Todo</span> <span class="stroke">número</span> <span class="lil">tem palco.</span></h1>
+    <p class="lead" data-reveal style="--d:2">Circo, malabarismo, palhaçaria, mágica, teatro de rua, dança e fogo. Perfil gratuito, no mesmo catálogo das bandas, para quem contrata encontrar seu número.</p>
+    <div class="ctas" data-reveal style="--d:3">{btn("cadastro-performance.html", "Cadastrar meu número")}{btn("solicitar-proposta.html", "Contratar performance", "g")}</div>
+  </div>
+  <div class="juggle" aria-hidden="true"><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><i class="b b4"></i><i class="b b5"></i><span class="ring r1"></span><span class="ring r2"></span><span class="hands"></span></div>
+</section>
+<div class="tickers">{ticker(["Malabarismo", "Acrobacia", "Aéreos", "Palhaçaria", "Mágica", "Perna de pau", "Fogo e LED", "Teatro de rua", "Dança"], "t-org")}</div>
+{section("01 — Quem entra", "Se você <span class='lil'>se apresenta,</span> cabe aqui.", cards([
+    ('Circo e acrobacia', 'Malabaristas, acrobatas, aéreos, equilibristas e pernas de pau.'),
+    ('Humor e ilusão', 'Palhaços, mágicos, mímicos e animadores de plateia.'),
+    ('Fogo, luz e dança', 'Números com fogo, LED, dança e teatro de rua.'),
+    ('Infantil e família', 'Contação de histórias, bonecos e shows para crianças.'),
+    ('Apoio a shows', 'Performers de palco, abertura e interação com o público.'),
+    ('Solo, trupe ou companhia', 'Do artista sozinho ao elenco completo.'),
+]))}
+{section("02 — Como funciona", "Mesmo caminho, <span class='stroke'>outro número.</span>", steps([
+    ('Cadastro', 'Modalidades, duração, público e estrutura necessária.'),
+    ('Validação', 'A equipe revisa dados e materiais antes de publicar.'),
+    ('Catálogo', 'Seu perfil entra nos filtros por modalidade, evento e região.'),
+    ('Contato', 'Direto com você ou com apoio do produtor N’ROTA.'),
+]))}
+{section("03 — O que aparece", "Seu número, <span class='lil'>do seu jeito.</span>", cards([
+    ('Descrição e vídeo', 'Como é a apresentação e um vídeo curto para quem contrata.'),
+    ('Público e eventos', 'Infantil, adulto, corporativo, rua, festival e casa noturna.'),
+    ('Estrutura', 'Espaço, altura, energia e cuidados de segurança, como uso de fogo.'),
+    ('Região', 'Cidade-base e onde você viaja. Cachê sempre privado.'),
+], 'g4'), "Você decide o que o perfil exibe. Condições comerciais não são públicas.")}
+{band("Seu número no catálogo. De graça.", "A equipe revisa e avisa quando o perfil for publicado.", btn("cadastro-performance.html", "Cadastrar meu número"))}
+''', [])
+
 PAGES['rebeca'] = ('Rebeca Catarina | N’ROTA', 'rebeca', f'''
 <section class="perfil wrap">
   <figure class="perfil-foto">
@@ -394,14 +428,14 @@ PAGES['rebeca'] = ('Rebeca Catarina | N’ROTA', 'rebeca', f'''
 {band("Vamos colocar sua banda na rota?", "Cadastro gratuito e contato direto com quem produz.", btn("cadastro-banda.html", "Cadastrar banda"))}
 ''', [])
 
-for slug, title in [('cadastro-banda', 'Cadastre sua banda'), ('solicitar-proposta', 'Solicitar proposta'), ('seja-parceiro', 'Quero ser parceiro'), ('acesso-antecipado', 'Acesso antecipado')]:
+for slug, title in [('cadastro-banda', 'Cadastre sua banda'), ('cadastro-performance', 'Cadastre seu número'), ('solicitar-proposta', 'Solicitar proposta'), ('seja-parceiro', 'Quero ser parceiro'), ('acesso-antecipado', 'Acesso antecipado')]:
     PAGES[slug] = (f'{title} | N’ROTA', 'form', f'<div class="wrap" data-form="{slug}"></div>', ['forms'])
 
 
 def render(slug, standalone):
     title, page, body, extra = PAGES[slug]
     scripts = '<script src="assets/site.js"></script>' + ''.join(f'<script src="assets/{s}.js"></script>' for s in extra)
-    head = (f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<meta name="theme-color" content="#07060a">\n'
+    head = (f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<meta name="theme-color" content="#0d0b0c">\n'
             f'<meta name="description" content="N’ROTA: catálogo, divulgação e contratação musical. Cadastro gratuito para artistas.">\n{FONTS}\n<link rel="stylesheet" href="assets/nrota.css">')
     content = f'<n-header></n-header>\n<main>{body}</main>\n<n-footer></n-footer>\n{scripts}'
     if slug == 'index' and not standalone:

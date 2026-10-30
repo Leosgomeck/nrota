@@ -15,6 +15,8 @@ Site estático da Fase 1: landing page, páginas de conteúdo e formulários em 
 | `artistas.html` | Perfil, cadastro em 10 etapas, planos, Instagram e agenciamento |
 | `eventos.html` | Faça seu evento com a gente |
 | `parceiros.html` | Rede de profissionais e fornecedores |
+| `performance.html` | Artes performáticas |
+| `cadastro-performance.html` | Formulário de performance |
 | `rebeca.html` | Perfil da Rebeca Catarina |
 | `duvidas.html` | Perguntas frequentes |
 | `cadastro-banda.html` | Formulário de cadastro da banda (10 etapas) |
