@@ -3,7 +3,7 @@
   --bg:#0d0b0c; --ink:#151213; --glass:rgba(255,255,255,.045); --glass-hi:rgba(255,255,255,.09); --edge:rgba(255,255,255,.09);
   --fg:#f7f4f4; --muted:#aaa4a6; --dim:#716c6e;
   --lilac:#e07c8e; --violet:#8e1428; --lilac-ink:#2a0710;
-  --orange:#ff7a1a; --orange-hi:#ffa05a; --orange-ink:#1f0d00;
+  --orange:#c42a45; --orange-hi:#e0556c; --orange-ink:#fff;
   --wine:#ae172e; --danger:#ff8a9a;
   --f-display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
   --f-body:"Familjen Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -41,8 +41,8 @@ p{margin:0}
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:99px;padding:15px 24px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .25s var(--ease),box-shadow .25s,background .2s,border-color .2s;white-space:nowrap}
 .btn:active{transform:scale(.97)}
 .btn:disabled{opacity:.6}
-.btn-o{background:linear-gradient(180deg,var(--orange-hi),var(--orange));color:var(--orange-ink);box-shadow:0 10px 30px -8px rgba(255,122,26,.7),inset 0 1px 0 rgba(255,255,255,.35)}
-.btn-o:hover{box-shadow:0 14px 40px -6px rgba(255,122,26,.85),inset 0 1px 0 rgba(255,255,255,.35);transform:translateY(-2px)}
+.btn-o{background:linear-gradient(180deg,var(--orange-hi),var(--orange));color:var(--orange-ink);box-shadow:0 10px 30px -8px rgba(196,42,69,.7),inset 0 1px 0 rgba(255,255,255,.35)}
+.btn-o:hover{box-shadow:0 14px 40px -6px rgba(196,42,69,.85),inset 0 1px 0 rgba(255,255,255,.35);transform:translateY(-2px)}
 .btn-p{background:var(--lilac);color:var(--lilac-ink)}
 .btn-p:hover{background:#d6c3ff;transform:translateY(-2px)}
 .btn-g{background:var(--glass);border-color:var(--edge);color:var(--fg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -109,7 +109,7 @@ footer.site{position:relative;overflow:hidden;border-top:1px solid var(--edge);p
 .beams{position:absolute;inset:-20% -30% auto;height:900px;z-index:-1;pointer-events:none}
 .beam{position:absolute;top:-10%;width:60%;height:120%;filter:blur(30px);opacity:.55;transform-origin:50% 0;mix-blend-mode:screen;animation:sweep 9s ease-in-out infinite alternate}
 .beam.b1{left:5%;background:conic-gradient(from 168deg at 50% 0,transparent 0deg,rgba(224,124,142,.55) 12deg,transparent 26deg)}
-.beam.b2{right:0;background:conic-gradient(from 172deg at 50% 0,transparent 0deg,rgba(255,122,26,.42) 10deg,transparent 22deg);animation-duration:11s;animation-delay:-3s}
+.beam.b2{right:0;background:conic-gradient(from 172deg at 50% 0,transparent 0deg,rgba(196,42,69,.42) 10deg,transparent 22deg);animation-duration:11s;animation-delay:-3s}
 .beam.b3{left:35%;background:conic-gradient(from 175deg at 50% 0,transparent 0deg,rgba(142,20,40,.6) 9deg,transparent 18deg);animation-duration:13s}
 @keyframes sweep{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
 .hero-grid{display:grid;gap:28px}
@@ -191,7 +191,7 @@ a.card .more{margin-top:auto;padding-top:10px}
 .card.photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,11,12,.05) 30%,rgba(13,11,12,.92))}
 .card.photo .in{position:relative;z-index:2;display:grid;gap:10px;padding:22px}
 .card.dash{background:transparent;border-style:dashed}
-.card.hl{border-color:rgba(255,122,26,.6);background:linear-gradient(160deg,rgba(255,122,26,.16),rgba(255,255,255,.02) 60%)}
+.card.hl{border-color:rgba(196,42,69,.6);background:linear-gradient(160deg,rgba(196,42,69,.16),rgba(255,255,255,.02) 60%)}
 .price{font-family:var(--f-display);font-weight:800;font-size:3rem;line-height:.9;color:var(--lilac)}
 .price small{font-family:var(--f-mono);font-weight:400;font-size:.62rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-left:6px}
 .card.hl .price{color:var(--orange-hi)}
@@ -229,7 +229,7 @@ a.card .more{margin-top:auto;padding-top:10px}
 .lc strong{display:block;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lc span{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lc .pill{display:inline-block;margin-top:5px;font-family:var(--f-mono);font-size:.54rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:99px;border:1px solid var(--edge);color:var(--lilac)}
-.lc.ask .pill{color:var(--orange-hi);border-color:rgba(255,122,26,.35)}
+.lc.ask .pill{color:var(--orange-hi);border-color:rgba(196,42,69,.35)}
 @media (min-width:640px){.stage{grid-template-columns:1fr 1fr}.lane.rev{display:block}}
 @media (min-width:980px){.flow{grid-template-columns:.9fr 1.1fr;align-items:center;gap:56px}.stage{height:520px}}
 
@@ -252,7 +252,7 @@ a.card .more{margin-top:auto;padding-top:10px}
 .example span{color:var(--lilac)}
 
 /* faixa final com vinil */
-.band{position:relative;overflow:hidden;display:grid;gap:22px;padding:34px 26px;border-radius:32px;border:1px solid var(--edge);background:radial-gradient(80% 120% at 0% 0%,rgba(142,20,40,.55),transparent 60%),radial-gradient(60% 80% at 100% 100%,rgba(255,122,26,.25),transparent 60%),var(--ink)}
+.band{position:relative;overflow:hidden;display:grid;gap:22px;padding:34px 26px;border-radius:32px;border:1px solid var(--edge);background:radial-gradient(80% 120% at 0% 0%,rgba(142,20,40,.55),transparent 60%),radial-gradient(60% 80% at 100% 100%,rgba(196,42,69,.25),transparent 60%),var(--ink)}
 .band>div{position:relative;z-index:2;display:grid;gap:14px;max-width:560px}
 .band h2{font-size:clamp(2.4rem,9vw,4.4rem)}
 .band .ctas{position:relative;z-index:2}
@@ -421,11 +421,11 @@ input[type=file]::file-selector-button{font:inherit;font-weight:600;margin-right
 .perf-txt h1 span{display:block}
 .juggle{position:relative;width:300px;height:260px;justify-self:center;perspective:700px}
 .juggle .b{position:absolute;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;offset-path:path("M150 110 C 230 -10 300 60 270 120 C 240 180 170 160 150 110 C 130 60 60 40 30 100 C 0 160 70 230 150 110 Z");offset-rotate:0deg;animation:orbit 6s linear infinite;box-shadow:inset -6px -8px 14px rgba(0,0,0,.45),0 14px 24px -8px rgba(0,0,0,.8)}
-.juggle .b1{background:radial-gradient(circle at 30% 28%,#ffc08a,var(--orange) 55%,#a33f00)}
-.juggle .b2{background:radial-gradient(circle at 30% 28%,#fff,#cfc9ca 60%,#7c7678);animation-delay:-1.2s}
+.juggle .b1{background:radial-gradient(circle at 30% 28%,#fff,#d9d4d5 55%,#8a8486)}
+.juggle .b2{background:radial-gradient(circle at 30% 28%,#4a4547,#1b1819 60%,#000);animation-delay:-1.2s}
 .juggle .b3{background:radial-gradient(circle at 30% 28%,#e8788a,var(--wine) 60%,#4d0a15);animation-delay:-2.4s}
 .juggle .b4{background:radial-gradient(circle at 30% 28%,#bdb7b9,#6e686a 60%,#2e2a2b);animation-delay:-3.6s}
-.juggle .b5{background:radial-gradient(circle at 30% 28%,#ffc08a,var(--orange) 55%,#a33f00);animation-delay:-4.8s}
+.juggle .b5{background:radial-gradient(circle at 30% 28%,#ee8a9b,var(--orange) 55%,#4d0a15);animation-delay:-4.8s}
 @keyframes orbit{to{offset-distance:100%}}
 .juggle .ring{position:absolute;border-radius:50%;border:2px solid var(--lilac);opacity:.55;animation:spin 9s linear infinite}
 .juggle .r1{width:220px;height:220px;left:40px;top:10px;transform:rotateX(68deg)}
